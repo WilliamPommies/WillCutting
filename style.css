@@ -105,7 +105,7 @@ header{
     max-width: 100%;       
     border-radius: 12.5px; 
     height: auto;
-    max-height: 400px;
+    max-height: 27em;
 }
 
 
@@ -203,17 +203,6 @@ footer {
   border-color: #fff;
 }
 
-@media (max-width: 768px) {
-  .filters {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .filter-group {
-    width: 100%;
-  }
-}
-
 .reset-btn {
   background: none;
   border: 1px solid #444;
@@ -253,7 +242,7 @@ footer {
   align-items: baseline;
   h2 {
     text-align: center;
-    font-size: 60px;
+    font-size: 3rem;
   }
 }
 
@@ -273,6 +262,7 @@ h2 {
     flex-flow: row wrap;
     align-items: center;
     justify-content: space-between;
+    
     div {
         max-width: calc(100% - 300px);
     }
@@ -292,7 +282,6 @@ h2 {
     display: flex;
     overflow: hidden;
     flex: auto;
-    max-width: 700px;
 }
 
 .img-wrapper img {
@@ -331,4 +320,51 @@ h2 {
 }
 
 
+@media screen and (max-width: 768px) {
+  #about div {
+      flex-direction: column ;
+      div {
+        max-width: 100% ;
+      }
+  }
+  .logoContainer {
+    justify-content: center;
+  }  
+}
 
+@media all and (max-width: 1024px){
+  header {
+    flex-direction: column;
+  }
+  nav {
+    margin-bottom: 2em;
+  }
+  .img-ctnr h2 {
+    width: 100%;
+  }
+  .filters {
+    width: 100%;
+    justify-content: center;
+    .filter-group {
+      flex-direction: column;
+    }
+  }
+}
+
+@media all and (max-width: 540px){
+  .section{
+    margin: 20px 20px;
+  }
+  .insta {
+    display: none;
+  }
+  .img-ctnr h2 {
+    font-size: 40px;
+  }
+}
+
+@media all and (min-width: 768px) and (max-width: 1024px){
+  .img-ctnr h2 {
+    margin: 50px auto 20px auto;
+  }
+}
