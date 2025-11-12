@@ -58,12 +58,10 @@ function displayImg(imgs) {
         return;
     }
 
-    // Sélecteurs de la modale
     const modal = document.getElementById("imageModal");
     const modalImg = document.getElementById("modalImage");
     const closeBtn = document.querySelector(".close");
 
-    // Ferme la modale
     closeBtn.onclick = function() {
         modal.style.display = "none";
         document.body.classList.remove('modal-open');
@@ -76,13 +74,10 @@ function displayImg(imgs) {
         }
     };
 
-    // Création des images
     imgs.forEach(img => {
-        // Wrapper
         const wrapper = document.createElement("div");
         wrapper.classList.add("img-wrapper");
 
-        // Image
         const el = document.createElement("img");
         el.loading = "lazy";
         el.src = `https://drive.google.com/thumbnail?id=${img.id}&sz=w1000`;
@@ -91,12 +86,10 @@ function displayImg(imgs) {
 
         el.addEventListener("contextmenu", e => e.preventDefault());
 
-        // Overlay (description)
         const overlay = document.createElement("div");
         overlay.classList.add("img-overlay");
         overlay.textContent = img.desc || "";
 
-        // Clique sur image → ouvre la modale
         el.onclick = function() {
             modal.style.display = "flex";
             modalImg.src = this.src;
@@ -105,7 +98,6 @@ function displayImg(imgs) {
             document.body.classList.add("modal-open");
         };
 
-        // Assemble
         wrapper.appendChild(el);
         wrapper.appendChild(overlay);
         container.appendChild(wrapper);
@@ -123,8 +115,8 @@ fetch('bdd.json')
     return response.json();
   })
   .then(data => {
-    imgs = data; // Assigne les données JSON à la variable imgs
-    displayImg(imgs); // Appelle ta fonction pour afficher les images
+    imgs = data; 
+    displayImg(imgs);
   })
   .catch(error => {
     console.error('Erreur:', error);
