@@ -22,9 +22,9 @@ function filterImages(tag) {
             .map(t => t.trim().toLowerCase());
 
         if (tag === "all" || tags.includes(tag.toLowerCase())) {
-            img.style.display = "block";
+            img.parentElement.style.display = "flex";
         } else {
-            img.style.display = "none";
+            img.parentElement.style.display = "none";
         }
     });
 }
@@ -41,14 +41,14 @@ function filterCombined() {
     const showYear = year === "all" || tags.includes(year.toLowerCase());
     const showGenre = genre === "all" || tags.includes(genre.toLowerCase());
 
-    wrapper.style.display = showYear && showGenre ? "block" : "none";
+    wrapper.style.display = showYear && showGenre ? "flex" : "none";
   });
 }
 
 function resetFilters() {
   document.getElementById("year-filter").value = "all";
   document.getElementById("genre-filter").value = "all";
-  filterCombined(); // Réaffiche toutes les images
+  filterCombined();
 }
 
 function displayImg(imgs) {
@@ -103,6 +103,30 @@ function displayImg(imgs) {
         container.appendChild(wrapper);
     });
 }
+
+const konamiCode = [
+  "ArrowUp", "ArrowUp",
+  "ArrowDown", "ArrowDown",
+  "ArrowLeft", "ArrowRight",
+  "ArrowLeft", "ArrowRight",
+  "b", "a", "Enter"
+];
+
+let konamiPosition = 0;
+
+window.addEventListener("keydown", (event) => {
+  const key = event.key;
+
+  if (key === konamiCode[konamiPosition]) {
+    konamiPosition++;
+    if (konamiPosition === konamiCode.length) {
+      filterImages("Tourisme");
+      konamiPosition = 0;
+    }
+  } else {
+    konamiPosition = 0;
+  }
+});
 
 
 let imgs = []; 
