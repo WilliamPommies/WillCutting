@@ -8,12 +8,12 @@
         </style>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>WillCutting Photography</title>
-        <link rel="icon" type="image/x-icon" href="./assets/favicon.png">
+        <link rel="icon" type="image/x-icon" href="./Assets/favicon.png">
 
         <!-- Instagram -->
         <meta property="og:title" content="WillCutting Photography">
         <meta property="og:description" content="Photographe street, portrait et concert. Découvrez mon portfolio.">
-        <meta property="og:image" content="https://williampommies.github.io/WillCutting/assets/preview.png">
+        <meta property="og:image" content="./Assets/preview.png">
         <meta property="og:url" content="https://williampommies.github.io/WillCutting/">
         <meta property="og:type" content="website">
 
@@ -21,21 +21,10 @@
         <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:title" content="WillCutting Photography">
         <meta name="twitter:description" content="Photographe street, portrait et concert. Découvrez mon portfolio.">
-        <meta name="twitter:image" content="https://williampommies.github.io/WillCutting/assets/preview.png">
+        <meta name="twitter:image" content="./Assets/preview.png">
     </head>
     <body>
-        <header>
-            <div class="logoContainer">
-                <img class="logo" src="./assets/signtature.png">
-                <h1>Willcutting Photography</h1>
-            </div>
-            <nav>
-                <a href="#about">About</a>
-                <a href="#event">Events</a>
-                <a href="#contact">Contact</a>
-                <a class ="insta" href="https://instagram.com/WillCutting"><i class="fa-brands fa-instagram"></i></a>
-            </nav>
-        </header>
+        <div id="site-header"></div>
         <div class="main">
             <div class="img-ctnr">
                 <h2>PORTFOLIO</h2>
@@ -71,7 +60,7 @@
             <div class="section" id="about">
                 <h2>About Me</h2>
                 <div>
-                    <img src="./assets/pp.png">
+                    <img src="./Assets/pp.png">
                     <div>
                         <p>
                             Arttiré par l'objectif depuis l'adolescence, armé de mon compact Samsung à essayer de travailler mes compositions sans
@@ -111,14 +100,12 @@
             </div>
         </div>
         </div>
-        <footer>
-            <span>© 2025 — William Pommies / @WillCutting - Toutes les photographies présentées sur ce site sont la propriété exclusive de leur auteur. 
-            Toute reproduction, diffusion ou utilisation sans autorisation préalable est strictement interdite.</span>
-        </footer>
+        <div id="site-footer"></div>
         <div id="imageModal" class="modal">
             <span class="close">&times;</span>
             <img class="modal-content" id="modalImage">
         </div>
+        <script src="./components/components.js"></script>
         <script src=imgs.js></script>
     </body>
 </html>
