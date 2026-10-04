@@ -1,3 +1,10 @@
+const LOCAL_DIR = "./assets/images/";
+
+function getImgSrc(img) {
+    if (img.file) return encodeURI(LOCAL_DIR + img.file);
+    return `https://drive.google.com/thumbnail?id=${img.id}&sz=w1000`; // ancien fonctionnement
+}
+
 function filterImages(tag) {
     const imgs = document.querySelectorAll("#container img");
     imgs.forEach(img => {
@@ -68,7 +75,7 @@ function displayImg(imgs) {
 
         const el = document.createElement("img");
         el.loading = "lazy";
-        el.src = `https://drive.google.com/thumbnail?id=${img.id}&sz=w1000`;
+        el.src = getImgSrc(img);
         el.alt = img.alt;
         el.dataset.tag = img.tag;
         if(img.tag == "Tourisme"){

@@ -9,13 +9,27 @@ body {
     font-family: "Elms Sans", system-ui, 'Open Sans';
     font-weight: normal;
     margin: 0;
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
     &.modal-open {
         overflow: hidden;
     }
 }
 
+main,
+.main {
+    flex: 1 0 auto; /* prend tout l'espace restant, ne se compresse jamais */
+}
+
+
+footer {
+    flex-shrink: 0;
+}
+
 header{
-    margin: 0 auto;
+    margin: 0;
     align-items: center;
     text-align: center;
     display: flex;
@@ -47,23 +61,23 @@ header{
     max-width: max-content;
     align-items: center;
 
-    a {
-        color: #fff;
-        text-decoration: none;
-        border: 1px #fff solid;
-        padding: 12px;
-        min-width: 50px;
-        text-align: center;
-        border-radius: 12px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+      a {
+          color: #fff;
+          text-decoration: none;
+          border: 1px #fff solid;
+          padding: 12px;
+          min-width: 50px;
+          text-align: center;
+          border-radius: 12px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
 
-        &:hover {
-            color: #f58e8e;
-        }
-    }
-}
+          &:hover {
+              color: #f58e8e;
+          }
+      }
+  }
 }
 
 #container {
@@ -368,3 +382,87 @@ h2 {
     margin: 50px auto 20px auto;
   }
 }
+
+
+
+/* Blog */
+.blog-list {
+  margin: 0 70px;
+  #posts {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 50px;
+    .post-card {
+      color: #fff;
+      img {
+        width: 100%;
+        max-height: 150px;
+        object-fit: cover;
+    }
+    } 
+  }
+}
+
+.post-card {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    min-height: 260px;
+    width: 330px;
+    overflow: hidden;
+    background-color: #111;
+    background-size: cover;
+    background-position: center;
+    text-decoration: none;
+    border-radius: 25px;
+}
+
+.post-card > div {
+    position: relative; /* passe au-dessus du dégradé */
+    padding: 1rem;
+}
+
+/* Cover présente : texte clair + dégradé pour garder le texte lisible */
+.post-card.has-cover {
+    color: #fff;
+}
+
+.post-card.has-cover::before {
+    content: "";
+    position: absolute;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.1));
+    inset: 0;
+}
+
+.blogArticle {
+  max-width: 80%;
+  margin: auto auto 50px auto;
+  img.blogBanner {
+    width: 100%;
+  }
+  a.blogLink {
+      color: #fff;
+      text-decoration: none;
+      border: 1px #fff solid;
+      padding: 12px;
+      min-width: 50px;
+      text-align: center;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      max-width: 150px;
+      margin: auto;
+  }
+  div.galery {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    gap: 30px;
+    img {
+      max-width: 600px;
+      object-fit: contain;
+    }
+  }
+}
+
